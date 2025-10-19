@@ -1,5 +1,5 @@
 :root {
-  --bg-image: url('https://example.com/your-background.jpg');
+  --bg-image: url('https://raw.githubusercontent.com/aa77ss/LiquidGlass-for-Vencord/refs/heads/main/background.webp');
   --blur-amount: 10px;
   --saturation: 180%;
   --opacity: 0.15;
