@@ -1,5 +1,5 @@
 :root {
-  --bg-image: url('https://example.com/your-background.jpg'); /* Replace with your own image URL for the underlying "liquid" layer */
+  --bg-image: url('https://example.com/your-background.jpg');
   --blur-amount: 10px;
   --saturation: 180%;
   --opacity: 0.15;
