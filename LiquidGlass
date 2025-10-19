@@ -1,0 +1,91 @@
+:root {
+  --bg-image: url('https://example.com/your-background.jpg'); /* Replace with your own image URL for the underlying "liquid" layer */
+  --blur-amount: 10px;
+  --saturation: 180%;
+  --opacity: 0.15;
+  --highlight-opacity: 0.3;
+  --shadow-color: rgba(31, 38, 135, 0.2);
+  --border-color: rgba(255, 255, 255, 0.8);
+  --inset-highlight: rgba(255, 255, 255, 0.3);
+  --liquid-opacity: 0.6;
+  --border-radius-large: 2rem;
+  --border-radius-small: 1rem;
+}
+
+/* Set base background */
+.appMount_fae9dd {
+  background: var(--bg-image) center/cover no-repeat fixed;
+}
+
+/* Apply liquid glass to main layers */
+.layers_a23c37,
+.sidebar_e031e4,
+.chat_49a4ff,
+.membersWrap_3-DOJno,
+.titleBar_1fpoRI,
+.privateChannels_f0963d,
+.panels_2d4baf {
+  position: relative;
+  background: rgba(255, 255, 255, var(--opacity)) !important;
+  backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 8px 32px var(--shadow-color),
+              inset 0 4px 20px var(--inset-highlight);
+  overflow: hidden; /* Prevent overflow for pseudo-elements */
+}
+
+/* Liquid touch pseudo-element for refraction/gel-like effect */
+.layers_a23c37::after,
+.sidebar_e031e4::after,
+.chat_49a4ff::after,
+.membersWrap_3-DOJno::after,
+.titleBar_1fpoRI::after,
+.privateChannels_f0963d::after,
+.panels_2d4baf::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-large);
+  backdrop-filter: blur(1px);
+  box-shadow: inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
+              inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
+  opacity: var(--liquid-opacity);
+  z-index: -1;
+  filter: blur(1px) drop-shadow(10px 4px 6px black) brightness(115%);
+}
+
+/* Soften other elements like buttons and inputs for Apple-like roundness */
+.button_afdfd9,
+.input_c49ff4,
+.searchBar_3ay_4h {
+  border-radius: var(--border-radius-small) !important;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Make toolbars and headers more glassy */
+.toolbar_3XqslV,
+.header_4c20eL {
+  background: transparent !important;
+  backdrop-filter: blur(var(--blur-amount));
+}
+
+/* Adjust for dark mode compatibility */
+.theme-dark .layers_a23c37,
+.theme-dark .sidebar_e031e4,
+.theme-dark .chat_49a4ff {
+  background: rgba(0, 0, 0, var(--opacity)) !important;
+}
+
+/* Optional: Add subtle tint for Apple aesthetic (uncomment to enable) */
+/*
+.layers_a23c37,
+.sidebar_e031e4,
+.chat_49a4ff {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(0, 174, 255, 0.05)) !important; /* Light blue tint */
+}
+*/
